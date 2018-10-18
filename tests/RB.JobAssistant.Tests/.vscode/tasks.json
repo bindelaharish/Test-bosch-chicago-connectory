@@ -1,0 +1,41 @@
+{
+    "version": "0.1.0",
+    "command": "dotnet",
+    "isShellCommand": true,
+    "args": [],
+    "tasks": [
+        {
+            "taskName": "build",
+            "args": [
+                "${workspaceRoot}/JobAssistantTests.csproj"
+            ],
+            "isBuildCommand": true,
+            "problemMatcher": "$msCompile"
+        },        
+        {
+            "taskName": "test",
+            "args": [
+                "${workspaceRoot}/JobAssistantTests.csproj"
+            ],
+            "isBuildCommand": false,
+            "isTestCommand": true,
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "taskName": "pack",
+            "args": [
+                "${workspaceRoot}/project.json"
+            ],
+            "isBuildCommand": false,
+            "isTestCommand": false
+        },
+        {
+            "taskName": "publish",
+            "args": [
+                "${workspaceRoot}/project.json"
+            ],
+            "isBuildCommand": false,
+            "isTestCommand": false
+        }
+    ]
+}

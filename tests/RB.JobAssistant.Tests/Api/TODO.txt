@@ -1,0 +1,36 @@
+﻿
+Round-out API tests for all 7 types:
+
+* Category
+* Trade
+* Job
+* Material
+* Application
+* Tool
+* Accessory
+
+Variations on these unit test cases include:
+
+ - Integration tests - HttpClient, RestSharp or both
+ - LiveDb tests
+ - MemDb tests
+ - Unit tests with XUnit fixtures (defined for setup or teardown)
+ - Exception tests
+
+Validate/enhance unit tests that exercise update and delete verbs.
+
+Test features such as:
+
+Create (Post), Update, Get, Delete
+Pagination
+HATEOS links (navigation-based links)
+Multi-tenancy
+
+
+Tests for:
+
+Controller
+Filters
+Data
+Models
+Repo

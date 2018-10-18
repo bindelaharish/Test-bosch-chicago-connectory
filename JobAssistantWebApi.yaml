@@ -1,0 +1,19 @@
+version: '2'
+services:
+  jobassistantwebapi1:
+    image: kb8vme7/aspnet-core-repo:rb-jobassistant-webapi-1
+    build:
+      context: src 
+      dockerfile: Dockerfile
+    # Set environment variables
+    environment:
+      ASPNETCORE_URLS: "http://*:6502"
+    # Set the port mapping
+    ports:
+      - "80:6502"
+    # Set the container startup order
+    depends_on:
+      - aspnetcore_runtime_only
+  # Image contains the .NET Core and ASP.NET Core bits
+  aspnetcore_runtime_only:
+    image: aspnetcore 
