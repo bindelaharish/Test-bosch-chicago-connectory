@@ -20,8 +20,16 @@ COPY . /app
 
 WORKDIR /app
 
-RUN ["dotnet", "build"]
+# Copy csproj and restore as distinct layers
+COPY *.csproj ./
+RUN dotnet restore
 
-EXPOSE 6502/tcp
+# Copy everything else and build
+COPY . ./
+RUN dotnet publish -c Release -o out
 
-CMD ["dotnet", "run", "--server.urls", "http://*:6502", "--no-launch-profile"]
+# Build runtime image
+FROM microsoft/dotnet:aspnetcore-runtime
+WORKDIR /app
+COPY --from=build-env /app/out .
+ENTRYPOINT ["dotnet", "RB.JobAssistant.dll"]
